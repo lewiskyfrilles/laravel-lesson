@@ -18,7 +18,7 @@ class PostController extends Controller
     {
         $this->authorize('viewAny', Post::class);
         $posts = Post::where('user_id', Auth::user()->id)->get();
-        return view('resources.post.index', ['posts' => $posts]);
+        return view('resource.post.index', ['posts' => $posts]);
     }
 
     /**
@@ -26,7 +26,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('resources.post.create');
+        return view('resource.post.create');
     }
 
     /**
@@ -50,7 +50,7 @@ class PostController extends Controller
     public function show(Post $post)
     {
         $this->authorize('view', $post);
-        return view('resources.post.show', ['post' => $post]);
+        return view('resource.post.show', ['post' => $post]);
     }
 
     /**
@@ -59,7 +59,7 @@ class PostController extends Controller
     public function edit(Post $post)
     {
         $this->authorize('view', $post);
-        return view('resources.post.edit', ['post' => $post]);
+        return view('resource.post.edit', ['post' => $post]);
     }
 
     /**
